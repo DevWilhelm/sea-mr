@@ -121,6 +121,7 @@ export const dedicatedServicePages: Record<string, string> = {
   "strategic-planning": "/services/growth-strategy",
   "market-entry-strategy": "/services/market-entry-planning",
   "mergers-and-acquisitions": "/services/investment-acquisition-support",
+  "value-chain-analysis": "/services/value-chain-assessment",
 };
 
 export function serviceHref(slug: string): string {
