@@ -119,6 +119,7 @@ export const sectors: Sector[] = [
 export const dedicatedServicePages: Record<string, string> = {
   "market-research": "/services/market-intelligence",
   "strategic-planning": "/services/growth-strategy",
+  "market-entry-strategy": "/services/market-entry-planning",
 };
 
 export function serviceHref(slug: string): string {
