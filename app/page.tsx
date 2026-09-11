@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import {
   sectors,
   services,
+  serviceHref,
   caseStudies,
   articles,
   clientIndustries,
@@ -166,12 +167,7 @@ export default function HomePage() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => {
             const Icon = getIcon(service.icon);
-            // "Market Intelligence" links to its own dedicated long-form page instead of
-            // the shared /services/[slug] detail template used by the other services.
-            const href =
-              service.slug === "market-research"
-                ? "/services/market-intelligence"
-                : `/services/${service.slug}`;
+            const href = serviceHref(service.slug);
             return (
               <Link key={service.slug} href={href} className="card group">
                 <Icon className="text-accent" size={28} />

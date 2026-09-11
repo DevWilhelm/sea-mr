@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { sectors, services, siteName } from "@/lib/content";
+import { sectors, services, serviceHref, siteName } from "@/lib/content";
 
 const navLinkClass =
   "text-sm font-medium text-white/90 hover:text-white transition";
@@ -62,12 +62,7 @@ export default function Header() {
             {openDropdown === "services" && (
               <div className="absolute left-0 top-full w-72 rounded-xl bg-white p-2 shadow-lg">
                 {services.map((s) => {
-                  // "Market Intelligence" links to its own dedicated long-form page
-                  // instead of the shared /services/[slug] detail template.
-                  const href =
-                    s.slug === "market-research"
-                      ? "/services/market-intelligence"
-                      : `/services/${s.slug}`;
+                  const href = serviceHref(s.slug);
                   return (
                     <Link
                       key={s.slug}

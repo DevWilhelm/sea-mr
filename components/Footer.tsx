@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { sectors, services, siteName, contactEmail } from "@/lib/content";
+import { sectors, services, serviceHref, siteName, contactEmail } from "@/lib/content";
 
 export default function Footer() {
   return (
@@ -40,12 +40,7 @@ export default function Footer() {
           <p className="mb-3 text-sm font-semibold text-white">Services</p>
           <ul className="space-y-2 text-sm">
             {services.slice(0, 6).map((s) => {
-              // "Market Intelligence" links to its own dedicated long-form page
-              // instead of the shared /services/[slug] detail template.
-              const href =
-                s.slug === "market-research"
-                  ? "/services/market-intelligence"
-                  : `/services/${s.slug}`;
+              const href = serviceHref(s.slug);
               return (
                 <li key={s.slug}>
                   <Link href={href} className="hover:text-white">

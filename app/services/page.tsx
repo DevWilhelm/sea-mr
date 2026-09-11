@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services } from "@/lib/content";
+import { services, serviceHref } from "@/lib/content";
 import { getIcon } from "@/lib/icons";
 
 export const metadata: Metadata = {
@@ -25,14 +25,7 @@ export default function ServicesPage() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
             const Icon = getIcon(service.icon);
-            // "Market Intelligence" and "Growth Strategy" link to their own dedicated
-            // long-form pages instead of the shared /services/[slug] detail template
-            // used by the other services.
-            const dedicatedSlugs: Record<string, string> = {
-              "market-research": "/services/market-intelligence",
-              "strategic-planning": "/services/growth-strategy",
-            };
-            const href = dedicatedSlugs[service.slug] ?? `/services/${service.slug}`;
+            const href = serviceHref(service.slug);
             return (
               <Link key={service.slug} href={href} className="card">
                 <Icon className="text-accent" size={28} />

@@ -111,6 +111,20 @@ export const sectors: Sector[] = [
   },
 ];
 
+// Slugs of services that have their own dedicated long-form page instead of
+// using the shared /services/[slug] detail template. Referenced everywhere a
+// service links out (services grid, header/footer nav, homepage) via
+// `serviceHref` below, so adding a new dedicated page only means updating
+// this one map.
+export const dedicatedServicePages: Record<string, string> = {
+  "market-research": "/services/market-intelligence",
+  "strategic-planning": "/services/growth-strategy",
+};
+
+export function serviceHref(slug: string): string {
+  return dedicatedServicePages[slug] ?? `/services/${slug}`;
+}
+
 export const services: Service[] = [
   {
     slug: "market-research",
