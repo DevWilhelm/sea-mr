@@ -123,6 +123,7 @@ export const dedicatedServicePages: Record<string, string> = {
   "mergers-and-acquisitions": "/services/investment-acquisition-support",
   "value-chain-analysis": "/services/value-chain-assessment",
   "competitive-benchmarking": "/services/competitive-landscape-analysis",
+  "distribution-strategic-partnership": "/services/partner-channel-development",
 };
 
 export function serviceHref(slug: string): string {
