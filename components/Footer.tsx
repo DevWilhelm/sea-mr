@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { sectors, services, serviceHref, siteName, contactEmail } from "@/lib/content";
+import { markets } from "@/lib/markets";
 
 export default function Footer() {
   return (
     <footer className="bg-primary-dark text-white/80">
-      <div className="mx-auto grid max-w-content gap-10 px-6 py-14 md:grid-cols-4 md:px-10">
+      <div className="mx-auto grid max-w-content gap-10 px-6 py-14 md:grid-cols-5 md:px-10">
         <div>
           <p className="text-lg font-bold text-white">{siteName}</p>
           <p className="mt-3 text-sm">
@@ -47,6 +48,19 @@ export default function Footer() {
                 </li>
               );
             })}
+          </ul>
+        </div>
+
+        <div>
+          <p className="mb-3 text-sm font-semibold text-white">Markets</p>
+          <ul className="space-y-2 text-sm">
+            {markets.map((m) => (
+              <li key={m.slug}>
+                <Link href={`/markets/${m.slug}`} className="hover:text-white">
+                  {m.countryName}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

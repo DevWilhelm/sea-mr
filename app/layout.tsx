@@ -3,6 +3,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactCTASection from "@/components/ContactCTASection";
 import { siteName, siteDescription } from "@/lib/content";
 
 const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="font-sans">
         <Header />
         <main>{children}</main>
+        <ContactCTASection />
         <Footer />
       </body>
     </html>

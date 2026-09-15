@@ -26,7 +26,7 @@ export type CaseStudy = {
   body: string[];
 };
 
-export const siteName = "Sea Market Research";
+export const siteName = "SEA Market Research";
 export const siteTagline = "Market Intelligence for Growth Across Southeast Asia";
 export const siteDescription =
   "Sea Market Research helps businesses and investors enter, grow, and win across Southeast Asia with market research, strategy, and market-entry consulting.";

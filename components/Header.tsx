@@ -4,13 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { sectors, services, serviceHref, siteName } from "@/lib/content";
+import { markets } from "@/lib/markets";
+import NavDropdown from "@/components/NavDropdown";
 
-const navLinkClass =
-  "text-sm font-medium text-white/90 hover:text-white transition";
+const navLinkClass = "text-sm font-medium text-white/90 hover:text-white transition";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileMarketsOpen, setMobileMarketsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-primary shadow-md">
@@ -28,54 +29,26 @@ export default function Header() {
             About
           </Link>
 
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown("sectors")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link href="/sectors" className={`${navLinkClass} flex items-center gap-1`}>
-              Sectors <ChevronDown size={14} />
-            </Link>
-            {openDropdown === "sectors" && (
-              <div className="absolute left-0 top-full w-64 rounded-xl bg-white p-2 shadow-lg">
-                {sectors.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/sectors/${s.slug}`}
-                    className="block rounded-lg px-4 py-2 text-sm text-primary hover:bg-primary/5"
-                  >
-                    {s.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          <NavDropdown
+            label="Sectors"
+            href="/sectors"
+            panelClassName="w-64"
+            items={sectors.map((s) => ({ key: s.slug, href: `/sectors/${s.slug}`, label: s.name }))}
+          />
 
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown("services")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link href="/services" className={`${navLinkClass} flex items-center gap-1`}>
-              Our Services <ChevronDown size={14} />
-            </Link>
-            {openDropdown === "services" && (
-              <div className="absolute left-0 top-full w-72 rounded-xl bg-white p-2 shadow-lg">
-                {services.map((s) => {
-                  const href = serviceHref(s.slug);
-                  return (
-                    <Link
-                      key={s.slug}
-                      href={href}
-                      className="block rounded-lg px-4 py-2 text-sm text-primary hover:bg-primary/5"
-                    >
-                      {s.name}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-          </div>
+          <NavDropdown
+            label="Our Services"
+            href="/services"
+            panelClassName="w-72"
+            items={services.map((s) => ({ key: s.slug, href: serviceHref(s.slug), label: s.name }))}
+          />
+
+          <NavDropdown
+            label="Markets"
+            href="/markets"
+            panelClassName="w-56"
+            items={markets.map((m) => ({ key: m.slug, href: `/markets/${m.slug}`, label: m.countryName }))}
+          />
 
           <Link href="/contact-us" className="btn-primary">
             Contact Us
@@ -108,6 +81,38 @@ export default function Header() {
             <Link href="/services" className={navLinkClass} onClick={() => setMobileOpen(false)}>
               Our Services
             </Link>
+
+            <div>
+              <button
+                type="button"
+                className={`${navLinkClass} flex w-full items-center justify-between py-1`}
+                aria-expanded={mobileMarketsOpen}
+                aria-controls="mobile-markets-menu"
+                onClick={() => setMobileMarketsOpen((v) => !v)}
+              >
+                Markets
+                <ChevronDown
+                  size={16}
+                  aria-hidden="true"
+                  className={`transition-transform ${mobileMarketsOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileMarketsOpen && (
+                <div id="mobile-markets-menu" className="mt-2 flex flex-col gap-3 border-l border-white/10 pl-4">
+                  {markets.map((m) => (
+                    <Link
+                      key={m.slug}
+                      href={`/markets/${m.slug}`}
+                      className="py-1 text-sm text-white/80 transition hover:text-white"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {m.countryName}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               href="/contact-us"
               className="btn-primary w-fit"
