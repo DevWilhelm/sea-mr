@@ -12,6 +12,9 @@ import {
   BarChart3,
   Network,
   Users,
+  ShoppingBag,
+  Factory,
+  RadioTower,
   type LucideIcon,
 } from "lucide-react";
 
@@ -29,6 +32,9 @@ export const iconMap: Record<string, LucideIcon> = {
   BarChart3,
   Network,
   Users,
+  ShoppingBag,
+  Factory,
+  RadioTower,
 };
 
 export function getIcon(name: string): LucideIcon {

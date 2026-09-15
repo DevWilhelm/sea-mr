@@ -26,22 +26,6 @@ export type CaseStudy = {
   body: string[];
 };
 
-export type Article = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  author: string;
-  body: string[];
-};
-
-export type Whitepaper = {
-  slug: string;
-  title: string;
-  summary: string;
-  gated: boolean;
-};
-
 export const siteName = "Sea Market Research";
 export const siteTagline = "Market Intelligence for Growth Across Southeast Asia";
 export const siteDescription =
@@ -50,63 +34,63 @@ export const contactEmail = "info@seamarketresearch.com";
 
 export const sectors: Sector[] = [
   {
-    slug: "construction",
-    name: "Construction",
-    icon: "HardHat",
-    summary:
-      "Demand forecasting, competitor mapping, and market entry for building materials, infrastructure, and real estate players.",
-    body: [
-      "Southeast Asia's construction sector is being reshaped by urban migration, infrastructure spending, and a wave of foreign direct investment into industrial parks and transport corridors.",
-      "We help materials manufacturers, contractors, and infrastructure investors size demand by country, map the competitive and regulatory landscape, and identify the distribution or joint-venture partners best positioned to support market entry.",
-      "Typical engagements cover market sizing, competitor benchmarking, channel mapping, and feasibility studies ahead of a plant, distribution hub, or regional office launch.",
-    ],
-  },
-  {
-    slug: "healthcare",
-    name: "Healthcare",
+    slug: "healthcare-life-sciences",
+    name: "Healthcare & Life Sciences",
     icon: "Stethoscope",
     summary:
-      "Market access, competitive intelligence, and demand modeling for medical devices, diagnostics, and pharma companies.",
+      "Demand assessment, regulatory guidance, and growth planning for providers, medtech, and pharma businesses building sustainable operations in the region.",
     body: [
-      "Rising incomes, aging populations in some markets, and expanding insurance coverage are driving healthcare spending across the region — but registration pathways, procurement models, and channel structures vary sharply by country.",
-      "We support medical device, diagnostics, and pharmaceutical companies with regulatory and reimbursement landscaping, hospital and distributor mapping, and competitive intelligence to guide launch sequencing.",
-      "Recent work includes multi-country market sizing for a diagnostics portfolio and distributor due diligence ahead of a regional exclusivity agreement.",
+      "Demand assessment, regulatory guidance, and growth planning for providers, medtech, and pharma businesses building sustainable operations in the region.",
     ],
   },
   {
-    slug: "energy",
-    name: "Energy",
+    slug: "consumer-retail",
+    name: "Consumer & Retail",
+    icon: "ShoppingBag",
+    summary:
+      "Expansion planning, positioning, and channel research for consumer brands and retail investors looking to grow across Southeast Asian markets.",
+    body: [
+      "Expansion planning, positioning, and channel research for consumer brands and retail investors looking to grow across Southeast Asian markets.",
+    ],
+  },
+  {
+    slug: "energy-renewables",
+    name: "Energy & Renewables",
     icon: "Zap",
     summary:
-      "Research and strategy support for renewable energy, oil & gas, and power infrastructure players entering the region.",
+      "Policy tracking, risk assessment, and market analysis for developers and investors navigating the region's shift toward renewable and low-carbon energy.",
     body: [
-      "The region's energy transition is creating opportunity across solar, wind, grid infrastructure, and energy storage, alongside continued investment in conventional power and gas infrastructure.",
-      "We help developers, equipment suppliers, and investors assess project pipelines, policy and incentive frameworks, and local partnership requirements market by market.",
-      "Engagements range from feasibility studies for renewable project developers to competitive benchmarking for equipment and EPC suppliers.",
+      "Policy tracking, risk assessment, and market analysis for developers and investors navigating the region's shift toward renewable and low-carbon energy.",
     ],
   },
   {
-    slug: "logistics",
-    name: "Supply Chain & Logistics",
-    icon: "Truck",
-    summary:
-      "Network design, partner identification, and demand analysis for logistics, warehousing, and freight operators.",
-    body: [
-      "E-commerce growth and manufacturing relocation into Southeast Asia are driving demand for warehousing, last-mile delivery, and freight capacity — with infrastructure maturity varying widely between markets.",
-      "We support 3PLs, freight operators, and shippers with network and site assessments, competitive benchmarking, and partner or M&A target identification.",
-      "Our work has covered warehousing feasibility studies, last-mile partner shortlisting, and cross-border freight corridor analysis.",
-    ],
-  },
-  {
-    slug: "transport-mobility",
-    name: "Transport & Mobility",
+    slug: "automotive-mobility",
+    name: "Automotive & Mobility",
     icon: "Car",
     summary:
-      "Market entry and competitive research for automotive, mobility platforms, and transport infrastructure.",
+      "Supplier mapping, penetration studies, and supply-chain research for automotive and mobility businesses adapting to electrification and localization trends.",
     body: [
-      "Vehicle ownership growth, ride-hailing adoption, and early EV infrastructure investment are transforming mobility across the region, alongside continued expansion of mass transit in major cities.",
-      "We help automotive OEMs, mobility platforms, and infrastructure providers understand demand drivers, competitive positioning, and regulatory requirements by market.",
-      "Recent projects include EV charging infrastructure feasibility and competitive benchmarking for a regional mobility platform entrant.",
+      "Supplier mapping, penetration studies, and supply-chain research for automotive and mobility businesses adapting to electrification and localization trends.",
+    ],
+  },
+  {
+    slug: "industrials-manufacturing",
+    name: "Industrials & Manufacturing",
+    icon: "Factory",
+    summary:
+      "Efficiency reviews, footprint planning, and performance benchmarking for manufacturers looking to strengthen operations and resilience across the region.",
+    body: [
+      "Efficiency reviews, footprint planning, and performance benchmarking for manufacturers looking to strengthen operations and resilience across the region.",
+    ],
+  },
+  {
+    slug: "technology-media-telecom",
+    name: "Technology, Media & Telecommunications",
+    icon: "RadioTower",
+    summary:
+      "Digital market entry, ecosystem analysis, and competitive research for technology and telecom players scaling across fast-growing regional markets.",
+    body: [
+      "Digital market entry, ecosystem analysis, and competitive research for technology and telecom players scaling across fast-growing regional markets.",
     ],
   },
 ];
@@ -297,83 +281,9 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-export const articles: Article[] = [
-  {
-    slug: "multi-country-research-playbook",
-    title: "A Playbook for Multi-Country Market Research in Southeast Asia",
-    excerpt:
-      "Running research across several Southeast Asian markets at once raises different challenges than a single-country study. Here's how to plan for them.",
-    date: "2026-06-12",
-    author: "Sea Market Research Team",
-    body: [
-      "Multi-country research projects in Southeast Asia fail most often not because of bad analysis, but because of poor planning around language, sample availability, and comparability across markets.",
-      "Before fieldwork begins, define a common research framework that still allows for market-specific nuance — a rigid single questionnaire rarely works across culturally and linguistically diverse markets.",
-      "Build in extra time for translation review and local expert validation; a week saved at the design stage is often lost several times over during analysis.",
-    ],
-  },
-  {
-    slug: "panel-data-quality",
-    title: "Protecting Data Quality in Online Panel Research",
-    excerpt:
-      "Online panels are efficient, but data quality issues — including bots and fraudulent respondents — are a growing risk in the region.",
-    date: "2026-05-03",
-    author: "Sea Market Research Team",
-    body: [
-      "Online research panels offer speed and reach, but Southeast Asia has seen a rise in low-quality and fraudulent panel responses that can quietly distort findings.",
-      "We recommend layering attention checks, response-time screening, and post-fieldwork data forensics on top of standard panel provider quality controls.",
-      "Treat panel vendor quality claims as a starting point, not a guarantee — independent validation catches issues vendors miss.",
-    ],
-  },
-  {
-    slug: "diy-vs-full-service-research",
-    title: "DIY vs. Full-Service Market Research: Making the Right Call",
-    excerpt:
-      "Self-serve research tools are more capable than ever. Here's how to decide when they're enough — and when they're not.",
-    date: "2026-03-21",
-    author: "Sea Market Research Team",
-    body: [
-      "DIY research tools are a good fit for quick directional questions with straightforward sampling needs.",
-      "Full-service research earns its cost when the decision at stake is high-consequence, the target population is hard to reach, or cross-market comparability matters.",
-      "Many of our clients use a blend: DIY tools for ongoing tracking, full-service studies for major market entry or investment decisions.",
-    ],
-  },
-  {
-    slug: "agile-research-for-brands",
-    title: "Agile Market Research for Southeast Asian Brands",
-    excerpt:
-      "Faster decision cycles call for research methods that deliver clear answers without sacrificing rigor.",
-    date: "2026-02-08",
-    author: "Sea Market Research Team",
-    body: [
-      "Agile research doesn't mean cutting corners — it means scoping tightly around the specific decision a team needs to make.",
-      "We favor short, focused research sprints tied to a single decision, with a clear go/no-go or choose-between-options framing.",
-      "This approach has helped consumer brands move from question to decision in weeks rather than months.",
-    ],
-  },
-];
-
-export const whitepapers: Whitepaper[] = [
-  {
-    slug: "southeast-asia-consumer-outlook",
-    title: "The Southeast Asia Consumer Outlook",
-    summary:
-      "A look at shifting consumer priorities, digital adoption, and channel behavior across the region's largest markets.",
-    gated: true,
-  },
-  {
-    slug: "market-entry-readiness-checklist",
-    title: "Market Entry Readiness: A Practical Checklist",
-    summary:
-      "A structured checklist covering regulatory, commercial, and operational readiness before entering a new Southeast Asian market.",
-    gated: true,
-  },
-];
-
 export const clientIndustries = [
-  "Construction",
   "Healthcare",
   "Energy",
-  "Logistics",
   "Automotive",
   "Consumer Goods",
   "Industrials",

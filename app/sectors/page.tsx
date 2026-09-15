@@ -5,7 +5,7 @@ import { getIcon } from "@/lib/icons";
 
 export const metadata: Metadata = {
   title: "Sectors",
-  description: "Sectors we cover across Southeast Asia: construction, healthcare, energy, logistics, and transport & mobility.",
+  description: "Sectors we cover across Southeast Asia: healthcare & life sciences, consumer & retail, energy & renewables, automotive & mobility, industrials & manufacturing, and technology, media & telecommunications.",
 };
 
 export default function SectorsPage() {

@@ -5,8 +5,6 @@ import {
   sectors,
   services,
   serviceHref,
-  caseStudies,
-  articles,
   clientIndustries,
   siteTagline,
 } from "@/lib/content";
@@ -189,7 +187,7 @@ export default function HomePage() {
           <h2 className="text-2xl font-bold text-primary md:text-3xl">
             We Specialize in the Following Sectors
           </h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {sectors.map((sector) => {
               const Icon = getIcon(sector.icon);
               return (
@@ -205,49 +203,6 @@ export default function HomePage() {
             })}
           </div>
         </div>
-      </section>
-
-      {/* Whitepaper CTA */}
-      <section className="section">
-        <div className="rounded-3xl bg-primary px-8 py-12 text-white md:px-14 md:py-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent-light">
-            Stay Ahead of the Curve
-          </p>
-          <h2 className="mt-3 max-w-xl text-2xl font-bold md:text-3xl">
-            Explore Southeast Asia&apos;s Rapidly Evolving Consumer Market
-          </h2>
-          <p className="mt-4 max-w-xl text-white/80">
-            Get our latest whitepaper on shifting consumer priorities and growth
-            strategies across the region.
-          </p>
-          <Link href="/insights/whitepapers/southeast-asia-consumer-outlook" className="btn-primary mt-6">
-            Download Now
-          </Link>
-        </div>
-      </section>
-
-      {/* Case studies */}
-      <section className="section">
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-          Case Studies
-        </p>
-        <h2 className="mt-3 text-2xl font-bold text-primary md:text-3xl">
-          We have completed hundreds of projects for our clients
-        </h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {caseStudies.slice(0, 3).map((cs) => (
-            <Link key={cs.slug} href={`/case-studies/${cs.slug}`} className="card">
-              <p className="text-xs font-semibold uppercase tracking-wide text-accent">
-                {cs.sector}
-              </p>
-              <p className="mt-2 font-semibold text-primary">{cs.title}</p>
-              <p className="mt-2 text-sm text-black/60">{cs.summary}</p>
-            </Link>
-          ))}
-        </div>
-        <Link href="/case-studies" className="btn-secondary mt-8 !text-primary !border-primary/30 w-fit">
-          See All Case Studies
-        </Link>
       </section>
 
       {/* Clients */}
@@ -266,35 +221,6 @@ export default function HomePage() {
               </span>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Insights */}
-      <section className="section">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
-              Insights
-            </p>
-            <h2 className="mt-3 text-2xl font-bold text-primary md:text-3xl">
-              Our insights into the Southeast Asia market
-            </h2>
-          </div>
-          <Link href="/insights" className="hidden text-sm font-semibold text-accent md:block">
-            See All Insights
-          </Link>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {articles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/insights/articles/${article.slug}`}
-              className="card"
-            >
-              <p className="font-semibold text-primary">{article.title}</p>
-              <p className="mt-2 text-sm text-black/60">{article.excerpt}</p>
-            </Link>
-          ))}
         </div>
       </section>
 

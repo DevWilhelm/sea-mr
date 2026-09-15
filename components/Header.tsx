@@ -77,36 +77,6 @@ export default function Header() {
             )}
           </div>
 
-          <Link href="/case-studies" className={navLinkClass}>
-            Case Studies
-          </Link>
-
-          <div
-            className="relative"
-            onMouseEnter={() => setOpenDropdown("insights")}
-            onMouseLeave={() => setOpenDropdown(null)}
-          >
-            <Link href="/insights" className={`${navLinkClass} flex items-center gap-1`}>
-              Insights <ChevronDown size={14} />
-            </Link>
-            {openDropdown === "insights" && (
-              <div className="absolute left-0 top-full w-48 rounded-xl bg-white p-2 shadow-lg">
-                <Link
-                  href="/insights/articles"
-                  className="block rounded-lg px-4 py-2 text-sm text-primary hover:bg-primary/5"
-                >
-                  Articles
-                </Link>
-                <Link
-                  href="/insights/whitepapers"
-                  className="block rounded-lg px-4 py-2 text-sm text-primary hover:bg-primary/5"
-                >
-                  Whitepapers
-                </Link>
-              </div>
-            )}
-          </div>
-
           <Link href="/contact-us" className="btn-primary">
             Contact Us
           </Link>
@@ -137,12 +107,6 @@ export default function Header() {
             </Link>
             <Link href="/services" className={navLinkClass} onClick={() => setMobileOpen(false)}>
               Our Services
-            </Link>
-            <Link href="/case-studies" className={navLinkClass} onClick={() => setMobileOpen(false)}>
-              Case Studies
-            </Link>
-            <Link href="/insights" className={navLinkClass} onClick={() => setMobileOpen(false)}>
-              Insights
             </Link>
             <Link
               href="/contact-us"
