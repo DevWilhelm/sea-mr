@@ -1,0 +1,10 @@
+services:
+  - type: web
+    runtime: static
+    name: sea-market-research
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./out
+    routes:
+      - source: /*
+        destination: /404.html
+        type: rewrite

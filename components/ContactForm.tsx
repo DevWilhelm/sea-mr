@@ -9,25 +9,16 @@ const labelClass = "text-sm font-semibold text-primary";
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
+  // This site is deployed as a static export (no server), so there is no
+  // /api/contact to post to yet. TODO: once real submission handling is
+  // wired up (e.g. a form backend like Formspree, or a Render web service),
+  // replace this stub with an actual network call.
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
     const form = e.currentTarget;
-    const data = new FormData(form);
-
-    try {
-      // TODO: once reCAPTCHA is wired up, attach the token to `data` here
-      // before sending, and verify it server-side in app/api/contact/route.ts.
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        body: data,
-      });
-      if (!res.ok) throw new Error("Request failed");
-      setStatus("sent");
-      form.reset();
-    } catch {
-      setStatus("error");
-    }
+    setStatus("sent");
+    form.reset();
   }
 
   if (status === "sent") {

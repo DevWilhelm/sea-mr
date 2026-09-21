@@ -40,7 +40,9 @@ export const sectors: Sector[] = [
     summary:
       "Demand assessment, regulatory guidance, and growth planning for providers, medtech, and pharma businesses building sustainable operations in the region.",
     body: [
-      "Demand assessment, regulatory guidance, and growth planning for providers, medtech, and pharma businesses building sustainable operations in the region.",
+      "Southeast Asia's healthcare and life sciences sector is expanding quickly, driven by rising incomes, an ageing population in markets such as Thailand and Singapore, growing insurance coverage, and government investment in hospital and primary care infrastructure. For providers, medtech manufacturers, and pharmaceutical companies, this creates significant opportunity, but also a market that looks very different from one country to the next in terms of regulation, reimbursement, and procurement.",
+      "Registration timelines, clinical trial requirements, and reimbursement pathways vary widely across the region, and hospital and pharmacy procurement models range from centralized public tenders to fragmented private networks. Understanding these differences early is essential for sequencing a product launch, choosing the right local partner, and avoiding delays that can affect commercial performance. Competitive dynamics also differ by segment, with multinational players, regional distributors, and local manufacturers each occupying distinct positions.",
+      "We support healthcare and life sciences organizations with demand assessment, regulatory and reimbursement landscape mapping, competitor benchmarking, and distributor or partner identification. Whether you are launching a new diagnostic, expanding a hospital network, or assessing where to prioritize a pharmaceutical portfolio, our research gives you a clear, market-by-market view of demand, competition, and the practical steps required to build a sustainable presence.",
     ],
   },
   {
@@ -50,7 +52,9 @@ export const sectors: Sector[] = [
     summary:
       "Expansion planning, positioning, and channel research for consumer brands and retail investors looking to grow across Southeast Asian markets.",
     body: [
-      "Expansion planning, positioning, and channel research for consumer brands and retail investors looking to grow across Southeast Asian markets.",
+      "Southeast Asia's consumer and retail markets are being reshaped by a fast-growing middle class, rising urbanisation, and rapid adoption of e-commerce and digital payments. Consumer preferences, price sensitivity, and channel behaviour can differ significantly even between neighbouring markets, making it difficult to apply a single regional playbook to product positioning, pricing, or distribution.",
+      "Retail formats are evolving alongside these shifts, from the continued strength of traditional trade and wet markets in some markets to the rapid growth of modern trade, quick commerce, and social commerce in others. Understanding which channels actually reach target customers, and how competitors are positioned within them, is critical for consumer brands and retail investors deciding where and how to expand.",
+      "We help consumer and retail businesses assess demand, map channel and distribution options, benchmark competitors, and identify the positioning that will resonate with local customers. This research supports decisions on market entry sequencing, product and pricing strategy, and partner or franchise selection across Southeast Asia's diverse retail landscape.",
     ],
   },
   {
@@ -60,7 +64,9 @@ export const sectors: Sector[] = [
     summary:
       "Policy tracking, risk assessment, and market analysis for developers and investors navigating the region's shift toward renewable and low-carbon energy.",
     body: [
-      "Policy tracking, risk assessment, and market analysis for developers and investors navigating the region's shift toward renewable and low-carbon energy.",
+      "Southeast Asia is undergoing a significant shift toward renewable and low-carbon energy, driven by national decarbonisation targets, rising electricity demand, and growing investor appetite for solar, wind, and grid-modernisation projects. At the same time, policy frameworks, feed-in tariffs, power purchase agreement structures, and grid connection rules vary considerably from country to country.",
+      "Developers and investors entering this space need to understand not only the size of the opportunity but also the practical barriers to execution, including land access, permitting timelines, local content requirements, and the strength of domestic supply chains. Competitive intensity is also increasing as international developers, regional utilities, and independent power producers compete for the same pipeline of projects.",
+      "We support energy and renewables clients with policy and regulatory tracking, project pipeline and site feasibility analysis, competitive landscape mapping, and partner identification. This research helps developers prioritise markets, structure their entry approach, and reduce the risk associated with capital-intensive, long-lead-time energy investments across the region.",
     ],
   },
   {
@@ -70,7 +76,9 @@ export const sectors: Sector[] = [
     summary:
       "Supplier mapping, penetration studies, and supply-chain research for automotive and mobility businesses adapting to electrification and localization trends.",
     body: [
-      "Supplier mapping, penetration studies, and supply-chain research for automotive and mobility businesses adapting to electrification and localization trends.",
+      "The automotive and mobility sector across Southeast Asia is being reshaped by electrification, changing consumer preferences, and government policies aimed at building local manufacturing capability. Markets such as Thailand, Indonesia, and Vietnam are each pursuing different incentive structures and local content requirements, creating a fragmented but fast-moving competitive environment for manufacturers and suppliers.",
+      "Adoption of electric vehicles, charging infrastructure, and new mobility models is progressing at different speeds across the region, shaped by consumer affordability, infrastructure readiness, and government support. Suppliers and manufacturers need to understand not just where demand is growing, but which local partners, distribution networks, and supply chain capabilities will determine competitive success.",
+      "We help automotive and mobility businesses with supplier and partner mapping, market penetration studies, and supply-chain research, supporting decisions on where to localise production, which markets to prioritise for expansion, and how to position against both established players and new entrants adapting to electrification and changing mobility trends.",
     ],
   },
   {
@@ -80,7 +88,9 @@ export const sectors: Sector[] = [
     summary:
       "Efficiency reviews, footprint planning, and performance benchmarking for manufacturers looking to strengthen operations and resilience across the region.",
     body: [
-      "Efficiency reviews, footprint planning, and performance benchmarking for manufacturers looking to strengthen operations and resilience across the region.",
+      "Southeast Asia has become a focal point for manufacturers looking to diversify supply chains, reduce reliance on any single production base, and get closer to fast-growing regional demand. Vietnam, Indonesia, and Malaysia in particular have attracted significant manufacturing investment, though labour costs, infrastructure quality, and supplier ecosystems still vary widely across the region.",
+      "For industrial and manufacturing businesses already operating in the region, the priority is often different: improving operational efficiency, benchmarking performance against competitors, and deciding where to expand or consolidate a manufacturing footprint as costs and demand patterns shift. These decisions require a clear, comparative view of conditions across multiple potential locations.",
+      "We support manufacturers with efficiency reviews, footprint and site-location planning, and performance benchmarking against regional and global peers. This research helps industrial clients strengthen resilience, identify where operational or strategic improvements will have the greatest impact, and make informed decisions about expanding, relocating, or optimising manufacturing operations across Southeast Asia.",
     ],
   },
   {
@@ -90,7 +100,9 @@ export const sectors: Sector[] = [
     summary:
       "Digital market entry, ecosystem analysis, and competitive research for technology and telecom players scaling across fast-growing regional markets.",
     body: [
-      "Digital market entry, ecosystem analysis, and competitive research for technology and telecom players scaling across fast-growing regional markets.",
+      "Southeast Asia is one of the world's fastest-growing digital economies, with rising smartphone penetration, expanding digital payment adoption, and a young, increasingly online population driving demand across e-commerce, fintech, media, and telecommunications. This growth has attracted intense competition from regional platforms, global technology companies, and local telecom operators alike.",
+      "Digital market entry requires more than identifying overall growth potential. Ecosystem dynamics, including payment infrastructure, logistics networks, app store and platform dependencies, and local partnership norms, can determine whether a technology or media product succeeds in a given market. Telecom operators, meanwhile, are navigating infrastructure investment decisions, including 5G rollout, alongside intensifying competition for data and content revenue.",
+      "We help technology, media, and telecommunications companies with digital market entry analysis, ecosystem and competitive mapping, and consumer adoption research. This gives clients a clearer view of where digital demand is strongest, how the competitive and partner landscape is structured, and what it will take to scale successfully across Southeast Asia's fast-growing digital markets.",
     ],
   },
 ];
