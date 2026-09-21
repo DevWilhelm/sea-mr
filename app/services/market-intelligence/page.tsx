@@ -3,6 +3,9 @@ import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import { services } from "@/lib/content";
 import { ServiceArticle, type ArticleSection } from "@/components/ServiceArticle";
+import { ServiceHero } from "@/components/ServiceHero";
+import { FadeIn } from "@/components/FadeIn";
+import { serviceImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Market Intelligence",
@@ -160,14 +163,15 @@ export default function MarketIntelligencePage() {
 
   return (
     <>
-      <section className="bg-primary text-white">
-        <div className="section">
-          <Search size={36} className="text-accent-light" />
-          <h1 className="mt-4 text-3xl font-bold md:text-4xl">{service.name}</h1>
-          <p className="mt-4 max-w-2xl text-white/80">{service.summary}</p>
-        </div>
-      </section>
+      <ServiceHero
+        icon={Search}
+        title={service.name}
+        summary={service.summary}
+        image={serviceImages["market-research"].src}
+        imageAlt={serviceImages["market-research"].alt}
+      />
 
+      <FadeIn>
       <section className="section max-w-3xl">
         {intro.map((p, i) => (
           <p key={i} className="mt-4 text-black/70">
@@ -189,6 +193,7 @@ export default function MarketIntelligencePage() {
           </Link>
         </div>
       </section>
+      </FadeIn>
     </>
   );
 }

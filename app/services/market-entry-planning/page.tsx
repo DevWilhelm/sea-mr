@@ -3,6 +3,9 @@ import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { services } from "@/lib/content";
 import { ServiceArticle, type ArticleSection } from "@/components/ServiceArticle";
+import { ServiceHero } from "@/components/ServiceHero";
+import { FadeIn } from "@/components/FadeIn";
+import { serviceImages } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Market Entry Planning",
@@ -262,21 +265,23 @@ export default function MarketEntryPlanningPage() {
 
   return (
     <>
-      <section className="bg-primary text-white">
-        <div className="section">
-          <MapPin size={36} className="text-accent-light" />
-          <h1 className="mt-4 text-3xl font-bold md:text-4xl">{service.name}</h1>
-          <p className="mt-4 max-w-2xl text-white/80">{service.summary}</p>
-        </div>
-      </section>
+      <ServiceHero
+        icon={MapPin}
+        title={service.name}
+        summary={service.summary}
+        image={serviceImages["market-entry-strategy"].src}
+        imageAlt={serviceImages["market-entry-strategy"].alt}
+      />
 
-      <section className="section max-w-3xl">
-        <ServiceArticle sections={sections} />
+      <FadeIn>
+        <section className="section max-w-3xl">
+          <ServiceArticle sections={sections} />
 
-        <Link href="/contact-us" className="btn-primary mt-10 !bg-primary">
-          Talk to an Expert <ArrowRight size={16} className="ml-2" />
-        </Link>
-      </section>
+          <Link href="/contact-us" className="btn-primary mt-10 !bg-primary">
+            Talk to an Expert <ArrowRight size={16} className="ml-2" />
+          </Link>
+        </section>
+      </FadeIn>
     </>
   );
 }

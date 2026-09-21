@@ -4,10 +4,12 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
   color: #1a1a1a;
+  background-color: #ffffff;
 }
 
 .section {
@@ -23,5 +25,9 @@ body {
 }
 
 .card {
-  @apply rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition hover:shadow-md;
+  @apply rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none;
+}
+
+.card-media {
+  @apply overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none;
 }
