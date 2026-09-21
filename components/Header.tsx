@@ -30,6 +30,13 @@ export default function Header() {
           </Link>
 
           <NavDropdown
+            label="Markets"
+            href="/markets"
+            panelClassName="w-56"
+            items={markets.map((m) => ({ key: m.slug, href: `/markets/${m.slug}`, label: m.countryName }))}
+          />
+
+          <NavDropdown
             label="Sectors"
             href="/sectors"
             panelClassName="w-64"
@@ -41,13 +48,6 @@ export default function Header() {
             href="/services"
             panelClassName="w-72"
             items={services.map((s) => ({ key: s.slug, href: serviceHref(s.slug), label: s.name }))}
-          />
-
-          <NavDropdown
-            label="Markets"
-            href="/markets"
-            panelClassName="w-56"
-            items={markets.map((m) => ({ key: m.slug, href: `/markets/${m.slug}`, label: m.countryName }))}
           />
 
           <Link href="/contact-us" className="btn-primary">
@@ -75,13 +75,6 @@ export default function Header() {
             <Link href="/about-us" className={navLinkClass} onClick={() => setMobileOpen(false)}>
               About
             </Link>
-            <Link href="/sectors" className={navLinkClass} onClick={() => setMobileOpen(false)}>
-              Sectors
-            </Link>
-            <Link href="/services" className={navLinkClass} onClick={() => setMobileOpen(false)}>
-              Our Services
-            </Link>
-
             <div>
               <button
                 type="button"
@@ -112,6 +105,13 @@ export default function Header() {
                 </div>
               )}
             </div>
+
+            <Link href="/sectors" className={navLinkClass} onClick={() => setMobileOpen(false)}>
+              Sectors
+            </Link>
+            <Link href="/services" className={navLinkClass} onClick={() => setMobileOpen(false)}>
+              Our Services
+            </Link>
 
             <Link
               href="/contact-us"

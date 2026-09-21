@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className="relative z-20 mx-auto max-w-content px-6 py-24 md:px-10 md:py-32">
           <FadeIn>
             <p className="text-sm font-semibold uppercase tracking-widest text-accent-light">
-              Sea Market Research
+              SEA Market Research
             </p>
             <h1 className="mt-4 max-w-2xl text-4xl font-bold leading-tight md:text-5xl">
               {siteTagline}
@@ -82,12 +82,28 @@ export default function HomePage() {
               evaluating customer demand, competitive dynamics, market trends, partnership
               opportunities, and growth potential.
             </p>
+            <p className="mt-4 text-base text-black/70">Our services include:</p>
+            <ul className="mt-3 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2">
+              {[
+                "Market entry studies",
+                "Feasibility studies",
+                "Customer research",
+                "Competitor analysis",
+                "Market sizing",
+                "Sector mapping",
+                "Partner identification",
+                "Investment assessment",
+                "Growth strategy",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2 text-base text-black/70">
+                  <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
+                  {item}
+                </li>
+              ))}
+            </ul>
             <p className="mt-4 text-base text-black/70">
-              Our services include market entry studies, feasibility studies, customer
-              research, competitor analysis, market sizing, sector mapping, partner
-              identification, investment assessment, and growth strategy helping clients
-              reduce uncertainty, make informed decisions, and create sustainable long-term
-              value across Southeast Asia.
+              Helping clients reduce uncertainty, make informed decisions, and create
+              sustainable long-term value across Southeast Asia.
             </p>
           </FadeIn>
           <FadeIn delay={150} className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl md:flex-1">
