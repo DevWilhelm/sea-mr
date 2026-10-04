@@ -8,7 +8,7 @@ import ContactForm from "@/components/ContactForm";
 // as its main content — showing it again there would duplicate the form.
 export default function ContactCTASection() {
   const pathname = usePathname();
-  if (pathname === "/contact-us") return null;
+  if (pathname?.replace(/\/$/, "") === "/contact-us") return null;
 
   return (
     <section className="bg-primary/5">
