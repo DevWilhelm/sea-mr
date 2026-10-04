@@ -8,17 +8,35 @@ const labelClass = "text-sm font-semibold text-primary";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [reference, setReference] = useState<string | null>(null);
 
-  // This site is deployed as a static export (no server), so there is no
-  // /api/contact to post to yet. TODO: once real submission handling is
-  // wired up (e.g. a form backend like Formspree, or a Render web service),
-  // replace this stub with an actual network call.
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
+    setErrorMessage(null);
     const form = e.currentTarget;
-    setStatus("sent");
-    form.reset();
+
+    try {
+      const res = await fetch("/api/contact/", {
+        method: "POST",
+        body: new FormData(form),
+      });
+      const result = await res.json();
+
+      if (!res.ok || !result.ok) {
+        setErrorMessage(result.error ?? "Something went wrong — please try again or email us directly.");
+        setStatus("error");
+        return;
+      }
+
+      setReference(result.reference ?? null);
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setErrorMessage("Something went wrong — please try again or email us directly.");
+      setStatus("error");
+    }
   }
 
   if (status === "sent") {
@@ -28,12 +46,26 @@ export default function ContactForm() {
         <p className="mt-2 text-sm text-black/60">
           We&apos;ve received your message and will get back to you shortly.
         </p>
+        {reference && (
+          <p className="mt-3 text-xs text-black/50">Reference: {reference}</p>
+        )}
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+      {/* Honeypot: hidden from real visitors, bots often fill every field. */}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <label htmlFor="companyWebsite">Leave this field empty</label>
+        <input
+          id="companyWebsite"
+          name="companyWebsite"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       <div>
         <label className={labelClass} htmlFor="firstName">First Name*</label>
         <input id="firstName" name="firstName" required className={inputClass} />
@@ -85,7 +117,7 @@ export default function ContactForm() {
         </button>
         {status === "error" && (
           <p className="mt-2 text-sm text-red-600">
-            Something went wrong — please try again or email us directly.
+            {errorMessage ?? "Something went wrong — please try again or email us directly."}
           </p>
         )}
         <p className="mt-3 text-xs text-black/50">

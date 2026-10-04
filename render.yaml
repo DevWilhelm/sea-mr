@@ -1,10 +1,13 @@
 services:
   - type: web
-    runtime: static
+    runtime: node
     name: sea-market-research
     buildCommand: npm install && npm run build
-    staticPublishPath: ./out
-    routes:
-      - source: /*
-        destination: /404.html
-        type: rewrite
+    startCommand: npm run start
+    envVars:
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CONTACT_NOTIFICATION_TO
+        value: websiteinquiries@sagasiaconsulting.com
+      - key: CONTACT_NOTIFICATION_FROM
+        value: "SEA Market Research Website <websiteinquiries@sagasiaconsulting.com>"

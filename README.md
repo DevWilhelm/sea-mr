@@ -34,40 +34,46 @@ app/                     Pages (App Router)
   case-studies/           Index + /case-studies/[slug] (unlinked from nav; still
                           referenced by /sectors/[slug]'s related case studies)
   contact-us/
-components/              Header, Footer, ContactForm (submit is a client-side stub)
+components/              Header, Footer, ContactForm (posts to /api/contact)
 lib/content.ts           All site content (sectors, services, case studies)
 lib/icons.tsx            Icon name -> lucide-react component map
+lib/email.ts             Resend client + inquiry notification email
+lib/reference.ts         Inquiry reference number generator
+app/api/contact/route.ts Contact form submission handler (validates, emails via Resend)
 ```
 
 ## Deployment
 
-This site currently builds as a static export (`output: "export"` in
-`next.config.mjs`, producing a plain HTML/CSS/JS bundle in `out/`) and is deployed to
-Render as a Static Site (see `render.yaml`). Because static exports can't run server
-code, there is no `app/api/` route right now — the contact form is a client-side stub
-that just shows a success message without sending anything (see below).
+This site runs as a regular Next.js Node server (`npm run start`) and is deployed to
+Render as a **Web Service** (see `render.yaml`), not a static export — the contact form's
+`app/api/contact/route.ts` needs a server to run.
 
-Build command: `npm install && npm run build`. Publish directory: `out`.
+Build command: `npm install && npm run build`. Start command: `npm run start`.
 
-If real server-side features are added later (working contact form email delivery,
-a CMS with on-demand data, etc.), `output: "export"` will need to come out of
-`next.config.mjs` and the Render service will need to move from a Static Site to a
-Web Service (`npm run start`).
+Required environment variables (see `.env.example`), set in the Render dashboard for
+production and in a local `.env.local` for development:
+
+- `RESEND_API_KEY` — secret, from your Resend account.
+- `CONTACT_NOTIFICATION_TO` — inbox that receives every inquiry (currently
+  `websiteinquiries@sagasiaconsulting.com`).
+- `CONTACT_NOTIFICATION_FROM` — sender shown on the notification email. The domain in
+  this address (`sagasiaconsulting.com`) must be verified in Resend before sending will
+  work.
 
 ## Before launch — things to wire up
 
-1. **Domain**: point `seamarketresearch.com` DNS at your Render static site.
+1. **Domain**: point `seamarketresearch.com` DNS at your Render web service.
 2. **CMS**: pick Sanity or Strapi, recreate the content models described in the
    project plan, and replace the static arrays in `lib/content.ts` with fetches from
    the CMS API.
-3. **Contact form email delivery**: `components/ContactForm.tsx` currently just shows
-   a success message locally — it doesn't send the submission anywhere. Wiring this up
-   for real will require either a server (switch this deploy to a Render Web Service
-   with an API route) or a third-party static-form backend (e.g. Formspree), then
-   emailing `info@seamarketresearch.com` on every submission.
-4. **reCAPTCHA**: add Google reCAPTCHA v3 to `components/ContactForm.tsx` and verify
-   the token server-side once a real backend exists (there's no server to verify
-   against while this stays a static export).
+3. **Contact form email delivery**: done — `app/api/contact/route.ts` validates the
+   submission and emails `CONTACT_NOTIFICATION_TO` via Resend, with the uploaded RFP
+   file attached when present. There's no automatic confirmation email to the visitor
+   yet; that's a natural follow-up (a second Resend call from the same route) once a
+   sender domain/mailbox for visitor-facing mail is available.
+4. **reCAPTCHA**: `app/api/contact/route.ts` has a honeypot field for basic bot
+   filtering; add Google reCAPTCHA v3 to `components/ContactForm.tsx` and verify the
+   token in the API route if spam becomes a real problem.
 5. **Analytics**: add Plausible or GA4 to `app/layout.tsx`.
 6. **Brand color**: `tailwind.config.ts` currently defines a navy `primary` and teal
    `accent` — adjust to your actual brand colors whenever you settle on them.
