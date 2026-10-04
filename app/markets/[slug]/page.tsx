@@ -7,20 +7,22 @@ import { getIcon } from "@/lib/icons";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import MarketExploreNav from "@/components/MarketExploreNav";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return markets.map((m) => ({ slug: m.slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const market = getMarket(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const market = getMarket(slug);
   if (!market) return {};
   return { title: market.metaTitle, description: market.metaDescription };
 }
 
-export default function MarketDetailPage({ params }: Props) {
-  const market = getMarket(params.slug);
+export default async function MarketDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const market = getMarket(slug);
   if (!market) notFound();
 
   const prioritySectors = getMarketSectors(market);

@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { services } from "@/lib/content";
 import { getIcon } from "@/lib/icons";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -15,14 +15,16 @@ function getService(slug: string) {
   return services.find((s) => s.slug === slug);
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const service = getService(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getService(slug);
   if (!service) return {};
   return { title: service.name, description: service.summary };
 }
 
-export default function ServiceDetailPage({ params }: Props) {
-  const service = getService(params.slug);
+export default async function ServiceDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const service = getService(slug);
   if (!service) notFound();
 
   const Icon = getIcon(service.icon);

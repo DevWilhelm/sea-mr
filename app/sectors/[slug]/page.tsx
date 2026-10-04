@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { sectors, caseStudies } from "@/lib/content";
 import { getIcon } from "@/lib/icons";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return sectors.map((s) => ({ slug: s.slug }));
@@ -15,14 +15,16 @@ function getSector(slug: string) {
   return sectors.find((s) => s.slug === slug);
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const sector = getSector(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const sector = getSector(slug);
   if (!sector) return {};
   return { title: sector.name, description: sector.summary };
 }
 
-export default function SectorDetailPage({ params }: Props) {
-  const sector = getSector(params.slug);
+export default async function SectorDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const sector = getSector(slug);
   if (!sector) notFound();
 
   const Icon = getIcon(sector.icon);

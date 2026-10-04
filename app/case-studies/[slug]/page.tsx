@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies } from "@/lib/content";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -13,14 +13,16 @@ function getCaseStudy(slug: string) {
   return caseStudies.find((cs) => cs.slug === slug);
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const cs = getCaseStudy(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const cs = getCaseStudy(slug);
   if (!cs) return {};
   return { title: cs.title, description: cs.summary };
 }
 
-export default function CaseStudyDetailPage({ params }: Props) {
-  const cs = getCaseStudy(params.slug);
+export default async function CaseStudyDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const cs = getCaseStudy(slug);
   if (!cs) notFound();
 
   return (
